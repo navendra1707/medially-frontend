@@ -9,12 +9,19 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import dayjs from "dayjs";
 import { REGISTER_API } from "../endPoints";
 import { toast } from "react-toastify";
+import CircularProgress from '@mui/material/CircularProgress';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../state";
 
 const RegisterForm = () => {
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [page, setPage] = useState(0);
 
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -28,6 +35,7 @@ const RegisterForm = () => {
   });
 
   const nextPage = (e) => {
+    
     e.preventDefault();
     if (!formData.email || !formData.confirmPassword || !formData.password) {
       setError(
@@ -44,6 +52,7 @@ const RegisterForm = () => {
   };
 
   const register = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const gender = e.target.elements.gender.value;
     setFormData(prev => ({
@@ -71,11 +80,15 @@ const RegisterForm = () => {
 
     const data = await response.json();
     console.log(data);
+    setLoading(false);
     if(!response.ok){
       toast.error(data?.message);
       return;
     }else{
       toast.success(data?.message);
+      const {user, token} = data;
+      dispatch(setLogin({user, token}));
+      navigate("/");
     }
   }
 
@@ -297,8 +310,9 @@ const RegisterForm = () => {
             width: isMobileScreen ? "40vw" : "10vw",
           }}
           type="submit"
+          disabled = {loading}
         >
-          Register
+          {loading ? <CircularProgress color = "secondary" /> : "Register"}
         </Btn>
       </Stack>
     </>
