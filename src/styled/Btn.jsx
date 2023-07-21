@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 
 const Btn = styled(Button)({
-  backgroundColor: "#DDA0DD",
+  backgroundColor: "#A076F9",
   borderRadius: "1.5rem",
   padding: "0.5rem 2rem",
   textTransform: "none",
