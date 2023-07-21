@@ -9,6 +9,9 @@ const Btn = styled(Button)({
   color: "#fff",
   fontWeight: "bold",
   fontSize: "1.2rem",
+  ':hover': {
+    backgroundColor: '#6528F7'
+  }
 });
 
 export default Btn;

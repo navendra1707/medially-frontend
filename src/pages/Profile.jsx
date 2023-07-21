@@ -54,7 +54,6 @@ const Profile = () => {
               <Btn
                 endIcon={<ModeEditIcon />}
                 style={{
-                  backgroundColor: main,
                   borderRadius: "0.5rem",
                 }}
               >
@@ -62,10 +61,13 @@ const Profile = () => {
               </Btn>
             </FlexBetween>
             <Divider />
-            <div>
-              <Heading color={neutralMain}>{user?.fullName}</Heading>
-              <SubHeading color={main}>{user?.email}</SubHeading>
-            </div>
+            <FlexBetween justifyContent={'space-between'} flexWrap={'wrap'}>
+                <div>
+                    <Heading color={neutralMain}>{user?.fullName}</Heading>
+                    <SubHeading color={main}>{user?.email}</SubHeading>
+                </div>
+                <SubHeading color={neutralMain}>{`User ID: ${user?.userId}`}</SubHeading>
+            </FlexBetween>
             <FlexBetween justifyContent="space-between">
               <SubHeading
                 color={neutralMain}
@@ -74,7 +76,7 @@ const Profile = () => {
                 mode === "dark" ? "Light" : "Dark"
               } Mode`}</SubHeading>
               <Btn onClick={() => dispatch(setMode())}>
-                {mode === "dark" ? <LightModeIcon /> : <NightsStayIcon />}
+                {mode === "dark" ? <LightModeIcon color={neutralMain} /> : <NightsStayIcon color={neutralMain} />}
               </Btn>
             </FlexBetween>
           </Stack>
