@@ -49,7 +49,7 @@ const Login = () => {
 
     return <Box
         sx={{
-            backgroundColor: '#030216',
+            backgroundColor: '#000',
             height: '100vh',
             display: 'flex',
             alignItems: 'center',
@@ -64,7 +64,7 @@ const Login = () => {
                     xs: '80vw',
                     md: '50vw'
                 },
-                backgroundColor: 'inherit'
+                backgroundColor: '#030216'
             }}
         >
             <Stack

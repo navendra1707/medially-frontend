@@ -9,7 +9,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import dayjs from "dayjs";
 import { REGISTER_API } from "../endPoints";
 import { toast } from "react-toastify";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../state";
@@ -35,7 +35,6 @@ const RegisterForm = () => {
   });
 
   const nextPage = (e) => {
-    
     e.preventDefault();
     if (!formData.email || !formData.confirmPassword || !formData.password) {
       setError(
@@ -55,49 +54,52 @@ const RegisterForm = () => {
     setLoading(true);
     e.preventDefault();
     const gender = e.target.elements.gender.value;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      gender: gender
+      gender: gender,
     }));
     const currDate = dayjs(new Date());
-    if(dayjs(formData.dob) > currDate){
+    if (dayjs(formData.dob) > currDate) {
       setError(`Date of Birth can't be after ${currDate.format("DD-MM-YYYY")}`);
       return;
-    }else{
+    } else {
       setError("");
     }
 
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${REGISTER_API}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        ...formData,
-        gender: gender
-      })
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_BASE_URL}/${REGISTER_API}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          gender: gender,
+        }),
+      }
+    );
 
     const data = await response.json();
     console.log(data);
     setLoading(false);
-    if(!response.ok){
+    if (!response.ok) {
       toast.error(data?.message);
       return;
-    }else{
+    } else {
       toast.success(data?.message);
-      const {user, token} = data;
-      dispatch(setLogin({user, token}));
+      const { user, token } = data;
+      dispatch(setLogin({ user, token }));
       navigate("/");
     }
-  }
+  };
 
   const inputProps = {
     style: {
       width: isMobileScreen ? "80vw" : "30vw",
       color: "#fff",
       fontWeight: 550,
-      fontSize: "1.2rem"
+      fontSize: "1.2rem",
     },
   };
 
@@ -276,16 +278,28 @@ const RegisterForm = () => {
         gap={2}
         sx={{
           color: "#fff",
-          fontSize: "1.2rem"
+          fontSize: "1.2rem",
         }}
       >
         <FormInput type="radio" id="male" name="gender" value="male" required />
         <label for="male">Male</label>
 
-        <FormInput type="radio" id="female" name="gender" value="female" required />
+        <FormInput
+          type="radio"
+          id="female"
+          name="gender"
+          value="female"
+          required
+        />
         <label for="female">Female</label>
 
-        <FormInput type="radio" id="other" name="gender" value="other" required />
+        <FormInput
+          type="radio"
+          id="other"
+          name="gender"
+          value="other"
+          required
+        />
         <label for="other">Other</label>
       </Stack>
       <Stack
@@ -310,9 +324,9 @@ const RegisterForm = () => {
             width: isMobileScreen ? "40vw" : "10vw",
           }}
           type="submit"
-          disabled = {loading}
+          disabled={loading}
         >
-          {loading ? <CircularProgress color = "secondary" /> : "Register"}
+          {loading ? <CircularProgress color="secondary" /> : "Register"}
         </Btn>
       </Stack>
     </>
@@ -325,25 +339,23 @@ const RegisterForm = () => {
         backgroundColor: "#030216",
       }}
     >
-      <form
-        onSubmit = {register}
-      >
+      <form onSubmit={register}>
         <Stack gap={3} justifyContent={"center"} alignItems={"center"}>
           {page === 0 && pageOne}
           {page === 1 && pageTwo}
         </Stack>
       </form>
-      (error &&{" "}
-      <Typography
-        style={{
-          color: "red",
-          fontWeight: 500,
-          fontSize: "1rem",
-        }}
-      >
-        {error}
-      </Typography>
-      )
+      {error && (
+        <Typography
+          style={{
+            color: "red",
+            fontWeight: 500,
+            fontSize: "1rem",
+          }}
+        >
+          {error}
+        </Typography>
+      )}
     </Box>
   );
 };
