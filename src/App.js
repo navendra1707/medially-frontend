@@ -9,6 +9,7 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Symptoms from "./pages/Symptoms";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -24,6 +25,7 @@ function App() {
             <Route element={isAuth ? <Navigate to='/' /> : <Login />} path='/login' />
             <Route element={isAuth ? <Navigate to='/' /> : <Login />} path='/register' />
             <Route element={isAuth ? <Profile /> : <Navigate to='/login' />} path='/profile' />
+            <Route element={isAuth ? <Symptoms /> : <Navigate to='/login' />} path='/symptoms' />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
