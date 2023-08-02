@@ -5,12 +5,14 @@ import { useTheme } from "@emotion/react";
 import FlexBetween from "../styled/FlexBetween";
 import ProfileButton from "./ProfileButton";
 import NavCard from "./NavCard";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { palette } = useTheme();
   const [open, setOpen] = useState(false);
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const background = palette.background.alt;
+  const navigate = useNavigate();
 
   return (
     <Card
@@ -23,7 +25,7 @@ const Navbar = () => {
     >
       {open && <NavCard setOpen = {setOpen} />}
       <FlexBetween justifyContent={"space-between"}>
-        <img alt="logo" src={logo} style={{width: isMobileScreen ? '10rem' : '13rem'}} />
+        <img alt="logo" src={logo} style={{width: isMobileScreen ? '10rem' : '13rem'}} onClick={() => navigate('/')} />
         <div
             onClick={() => setOpen(true)}
             style = {{cursor: 'pointer'}}
