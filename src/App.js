@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import BookAppointment from "./pages/BookAppointment";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -17,15 +18,20 @@ function App() {
   const isAuth = useSelector(state => state.token);
 
   return (
-    <div className="App">
+    <div
+      style={{
+        backgroundColor: theme?.palette?.background?.default
+      }}
+    >
       <BrowserRouter>
         <ThemeProvider theme = {theme} >
           <Routes>
-            <Route element={isAuth ? <Home /> : <Navigate to='/login' />} path='/' />
             <Route element={isAuth ? <Navigate to='/' /> : <Login />} path='/login' />
             <Route element={isAuth ? <Navigate to='/' /> : <Login />} path='/register' />
+            <Route element={isAuth ? <Home /> : <Navigate to='/login' />} path='/' />
             <Route element={isAuth ? <Profile /> : <Navigate to='/login' />} path='/profile' />
             <Route element={isAuth ? <BookAppointment /> : <Navigate to='/login' />} path='/book' />
+            <Route element={isAuth ? <SearchPage /> : <Navigate to='/login' />} path='/search' />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

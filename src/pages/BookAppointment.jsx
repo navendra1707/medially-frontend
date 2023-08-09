@@ -1,19 +1,29 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { Box, IconButton, InputBase, Stack, Tab, Tabs, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  InputBase,
+  Stack,
+  Tab,
+  Tabs,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { Search } from "@mui/icons-material";
 import FlexBetween from "../styled/FlexBetween";
 import { useTheme } from "@emotion/react";
 import Symptom from "../components/Symptom";
+import SearchBar from "../components/SearchBar";
 
 const BookAppointment = () => {
   const { palette } = useTheme();
-  const isMobileScreen = useMediaQuery('(max-width: 1000px)');
+  const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const neutralLight = palette.neutral.light;
   const defaultBack = palette.background.default;
   const neutralDark = palette.neutral.dark;
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   const [value, setValue] = useState(0);
 
@@ -59,11 +69,11 @@ const BookAppointment = () => {
           backgroundColor: defaultBack,
         }}
       >
-        <Stack 
-          gap={2} 
+        <Stack
+          gap={2}
           alignItems={"center"}
           sx={{
-            width: '80vw'
+            width: "80vw",
           }}
         >
           <form
@@ -73,26 +83,11 @@ const BookAppointment = () => {
               // }
             }}
           >
-            <FlexBetween
-              backgroundColor={neutralLight}
-              borderRadius="9px"
-              gap="3rem"
-              padding="0.1rem 1rem"
-            >
-              <InputBase
-                placeholder="Search Symptom / ..."
-                value={searchValue}
-                onChange={(e) => {
-                  setSearchValue(e.target.value);
-                }}
-                sx={{
-                    width: isMobileScreen ? '60vw' : '30vw'
-                }}
-              />
-              <IconButton type="submit">
-                <Search />
-              </IconButton>
-            </FlexBetween>
+            <SearchBar
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              placeholder={"Search Symptom / ..."}
+            />
           </form>
 
           <Tabs
@@ -105,9 +100,7 @@ const BookAppointment = () => {
           </Tabs>
 
           <TabPanel value={value} index={0}>
-            <Symptom 
-                searchTerm = {searchValue}
-            />
+            <Symptom searchTerm={searchValue} />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <div>2</div>

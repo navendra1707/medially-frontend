@@ -4,9 +4,11 @@ import React from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import FlexBetween from "../styled/FlexBetween";
 import SubHeading from "../styled/SubHeading";
+import { useNavigate } from "react-router-dom";
 
-const SearchCard = ({ name, image }) => {
+const SearchCard = ({ name, image, searchType }) => {
   const { palette } = useTheme();
+  const navigate = useNavigate();
   const alt = palette.background.alt;
   const neutralDark = palette.neutral.dark;
 
@@ -18,6 +20,10 @@ const SearchCard = ({ name, image }) => {
         height: "10vh",
         borderRadius: "0.8rem",
         p: 2,
+      }}
+
+      onClick={() => {
+        navigate(`/search?${searchType}=${name}`);
       }}
     >
       <FlexBetween justifyContent={"space-between"}>

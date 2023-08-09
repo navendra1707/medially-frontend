@@ -36,7 +36,13 @@ const Symptom = ({ searchTerm }) => {
     >
       <Stack alignItems={"center"} justifyContent={"center"} gap={1}>
         {symptoms.map((symptom) => {
-          return <SearchCard image={symptom.image} name={symptom.name} />;
+          return (
+            <SearchCard
+              image={symptom.image}
+              name={symptom.name}
+              searchType={"symptom"}
+            />
+          );
         })}
       </Stack>
     </Box>
