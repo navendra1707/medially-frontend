@@ -22,7 +22,7 @@ const SearchCard = ({ name, image }) => {
     >
       <FlexBetween justifyContent={"space-between"}>
         <Stack alignItems={'center'} direction={'row'} justifyContent={'center'} gap={2}>
-          <Avatar src={image} alt="symptom" />
+          <Avatar src={image ? image : ''} alt="symptom" />
           <SubHeading style={{ color: neutralDark }}>{name}</SubHeading>
         </Stack>
         <Button>

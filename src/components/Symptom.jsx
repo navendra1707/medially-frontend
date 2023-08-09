@@ -11,16 +11,16 @@ const Symptom = ({ searchTerm }) => {
 
   const [symptoms, setSymptoms] = useState(data?.symptoms);
 
-//   useEffect(() => {
-//     const filterSymptoms = () => {
-//       const filteredResults = symptoms.filter((symptom) =>
-//         symptom.name.toLowerCase().includes(searchTerm.toLowerCase())
-//       );
-//       setSymptoms(filteredResults);
-//     };
+  useEffect(() => {
+    const filterSymptoms = () => {
+      const filteredResults = symptoms.filter((symptom) =>
+        symptom.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSymptoms(filteredResults);
+    };
 
-//     filterSymptoms();
-//   }, [searchTerm]);
+    filterSymptoms();
+  }, [searchTerm]);
 
   return (
     <Box
