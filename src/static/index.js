@@ -19,128 +19,299 @@ import dry_eyes from '../assets/Dry_Eyes.png';
 import fever from '../assets/Fever.png';
 import food_poisoning from '../assets/Food_Poisoining.png';
 import fungal_infection from '../assets/Fungal_Infection.png';
+import hair_loss from '../assets/Hair_Loss.png';
+import headache from '../assets/Headache.png';
+import hearing_loss from '../assets/Hearing_Loss.png';
+import hiv from '../assets/HIV.png';
+import indigestion from '../assets/Indigestion.png';
+import irregular_periods from '../assets/Irregular_Period.png';
+import itching from '../assets/Iching.png';
+import knee_pain from '../assets/Knee_Pain.png';
+import migraine from '../assets/Migraine.png';
+import mouth_sores from '../assets/Mouth_Sores.png';
+import obesity from '../assets/Obesity.png';
+import pcos from '../assets/PCOS.png';
+import piles from '../assets/Piles.png';
+import pregnency from '../assets/Pregnency.png';
+import shoulder_pain from '../assets/Shoulder_Pain.png';
+import snoring from '../assets/Snoring.png';
+import stomach_pain from '../assets/Stomach_Pain.png';
+import swelling from '../assets/Swelling.png';
+import thyroid from '../assets/Thyroid.png';
+import toothache from '../assets/Toothache.png';
+import vaginal_discharge from '../assets/Vaginal_Discharge.png';
 
 const data = {
     symptoms: [
         {
             name: 'Acidity',
             image: acidity,
-            value: 'acidity',
             specialization: [
-                'Gastroenterologists',
+                'Dietician',
                 'Gastroenterologist',
-                'Gastrology'
+                'General Physician'
             ]
         },
         {
             name: 'Acne',
             image: acne,
-            value: 'acne',
             specialization: [
-                'Dermetologist',
-                'Dermatology',
-                'Dermatologists'
+                'Dermetologist'
             ]
         },
         {
             name: 'Allergies',
             image: allergies,
-            value: 'allergies',
             specialization: [
-                'Allergist',
-                'Allergists',
-                'Allergy'
+                'Dermatologist',
+                'General Physician',
+                'Pediatrics'
             ]
         },
         {
             name: 'Anxiety',
             image: anxiety,
-            value: 'anxiety'
+            specialization: ['Endocrinologist']
         },
         {
             name: 'Asthma',
             image: asthma,
-            value: 'asthma'
+            specialization: ['General Physician']
         },
         {
             name: 'Back Pain',
             image: back_pain,
-            value: 'back pain'
+            specialization: [
+                'General Physician', 
+                'Orthopedic'
+            ]
         },
         {
             name: 'Blurry Vision',
             image: blurry_vision,
-            value: 'blurry vision'
+            specialization: ['Ophthalmologist']
         },
         {
             name: 'Chest Pain',
             image: chest_pain,
-            value: 'chest pain'
+            specialization: ['Cardiologist']
         },
         {
             name: 'Chickenpox',
             image: chickenpox,
-            value: 'chickenpox'
+            specialization: ['General Physician']
         },
         {
             name: 'Common Cold',
             image: common_cold,
-            value: 'common cold'
+            specialization: ['Pediatrics', 'General Physician']
         },
         {
             name: 'Constipation',
             image: constipation,
-            value: 'constipation'
+            specialization: [
+                'Gynaecologist',
+                'General Physician',
+                'Pediatrics'
+            ]
         },
         {
             name: 'Cough',
             image: cough,
-            value: 'cough'
+            specialization: [
+                'General Physician',
+            ]
         },
         {
             name: 'Cough in Children',
             image: cough_in_children,
-            value: 'cough in children'
+            specialization: [
+                'Pediatrics'
+            ]
         },
         {
             name: 'Delayed Ejaculation',
             image: delayed_ejaculation,
-            value: 'delayed ejaculation'
+            specialization: [
+                'Sexologist',
+                'Urologist'
+            ]
         },
         {
             name: 'Diabetes',
             image: diabetes,
-            value: 'diabetes'
+            specialization: [
+                'Diabetologist',
+                'Endocrinologist',
+                'General Physician'
+            ]
         },
         {
             name: 'Diarrhoea',
             image: diarrhoea,
-            value: 'diarrhoea'
+            specialization: ['General Physician']
         },
         {
             name: 'Dizziness',
             image: dizziness,
-            value: 'dizziness'
+            specialization: ['General Physician']
         },
         {
             name: 'Dry Eyes',
             image: dry_eyes,
-            value: 'dry eyes'
+            specialization: ['Ophthalmologist']
         },
         {
             name: 'Fever',
             image: fever,
-            value: 'fever'
+            specialization: ['General Physician']
         },
         {
             name: 'Food Poisoning',
             image: food_poisoning,
-            value: 'food poisoning'
+            specialization: ['General Physician']
         },
         {
             name: 'Fungal Infection',
             image: fungal_infection,
-            value: 'fungal infection'
+            specialization: [
+                'Dermatologist',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Hair Loss',
+            image: hair_loss,
+            specialization: ['Dermatologist']
+        },
+        {
+            name: 'Headache',
+            image: headache,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Hearing Loss',
+            image: hearing_loss,
+            specialization: [
+                'ENT Specialist',
+                'General Surgeons'
+            ] 
+        },
+        {
+            name: 'HIV',
+            image: hiv,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Indigestion',
+            image: indigestion,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Irregular Periods',
+            image: irregular_periods,
+            specialization: ['Gynaecologist']
+        },
+        {
+            name: 'Itching',
+            image: itching,
+            specialization: [
+                'Dermatologist',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Knee Pain',
+            image: knee_pain,
+            specialization: [
+                'General Surgeons',
+                'Orthopedic'
+            ]
+        },
+        {
+            name: 'Migraine',
+            image: migraine,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Mouth Sores',
+            image: mouth_sores,
+            specialization: [
+                'ENT Specialist',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Obesity',
+            image: obesity,
+            specialization: [
+                'Dietician',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Panic Attack',
+            image: null,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'PCOS',
+            image: pcos,
+            specialization: ['Gynaecologist']
+        },
+        {
+            name: 'Piles',
+            image: piles,
+            specialization: [
+                'General Surgeon',
+                'Urologist'
+            ]
+        },
+        {
+            name: 'Pregnency',
+            image: pregnency,
+            specialization: ['Gynaecologist']
+        },
+        {
+            name: 'Shoulder Pain',
+            image: shoulder_pain,
+            specialization: ['Orthopedic']
+        },
+        {
+            name: 'Snoring',
+            image: snoring,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Stomach Pain',
+            image: stomach_pain,
+            specialization: [
+                'Gastroenterologist',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Swelling',
+            image: swelling,
+            specialization: ['General Physician']
+        },
+        {
+            name: 'Thyroid',
+            image: thyroid,
+            specialization: [
+                'Endocrinologist',
+                'General Physician'
+            ]
+        },
+        {
+            name: 'Toothache',
+            image: toothache,
+            specialization: ['Dentist']
+        },
+        {
+            name: 'Vaginal Discharge',
+            image: vaginal_discharge,
+            specialization: ['Constipation']
         }
     ]
 }

@@ -34,3 +34,9 @@ input[type='radio']{
   height: 1.2rem;
   cursor: pointer;
 }
+
+::-webkit-scrollbar {
+  overflow: auto;
+  scrollbar-width: 2px;
+  -ms-overflow-style: none;
+}

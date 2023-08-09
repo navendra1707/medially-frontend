@@ -64,7 +64,7 @@ const HomePage = () => {
               width: isMobileScreen ? '85vw' : '35vw'
             }}
             elevation={2}
-            onClick={() => navigate("/symptoms")}
+            onClick={() => navigate("/book")}
           >
             <Stack
               direction="row"
