@@ -4,21 +4,23 @@ import { useTheme } from "@emotion/react";
 import data from "../static";
 import SearchCard from "./SearchCard";
 
-const Symptom = ({searchTerm}) => {
+const Symptom = ({ searchTerm }) => {
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const { palette } = useTheme();
   const defaultBack = palette.background.default;
 
   const [symptoms, setSymptoms] = useState(data?.symptoms);
 
-  const filterSymptoms = () => {
-    const filteredResults = symptoms.filter(symptom => symptom.name.includes(searchTerm));
-    setSymptoms(filteredResults);
-  }
-
   useEffect(() => {
+    const filterSymptoms = () => {
+      const filteredResults = symptoms.filter((symptom) =>
+        symptom.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSymptoms(filteredResults);
+    };
+
     filterSymptoms();
-  }, [searchTerm])
+  }, [searchTerm]);
 
   return (
     <Box
@@ -32,7 +34,7 @@ const Symptom = ({searchTerm}) => {
       }}
       elevation={2}
     >
-      <Stack alignItems={'center'} justifyContent={"center"} gap={1}>
+      <Stack alignItems={"center"} justifyContent={"center"} gap={1}>
         {symptoms.map((symptom) => {
           return <SearchCard image={symptom.image} name={symptom.name} />;
         })}
