@@ -1,7 +1,7 @@
 import {Routes, BrowserRouter, Route, Navigate} from "react-router-dom";
 import Login from "./pages/Login";
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { ThemeProvider } from "@emotion/react";
 import { themeSettings } from "./theme";
 import { createTheme } from "@mui/material";
@@ -16,6 +16,21 @@ function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);  // change this theme when the mode changes
   const isAuth = useSelector(state => state.token);
+
+  useEffect(() => {
+    const startServer = async () => {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/start-server`, {
+        method: 'GET'
+      });
+
+      const data = await response.json();
+      if(response.ok){
+        console.log(data?.message);
+      }
+    }
+
+    startServer();
+  }, [])
 
   return (
     <div
