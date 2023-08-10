@@ -23,7 +23,7 @@ const SearchCard = ({ name, image, searchType }) => {
       }}
 
       onClick={() => {
-        navigate(`/search?${searchType}=${name}`);
+        navigate(`/search?${searchType}=${name}&page=1`);
       }}
     >
       <FlexBetween justifyContent={"space-between"}>
