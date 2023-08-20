@@ -41,6 +41,23 @@ import thyroid from '../assets/Thyroid.png';
 import toothache from '../assets/Toothache.png';
 import vaginal_discharge from '../assets/Vaginal_Discharge.png';
 
+import ENT from '../assets/ENT.png';
+import Gastro from '../assets/Gastro.png';
+import general from '../assets/12.png';
+import gynae from '../assets/13.png';
+import hema from '../assets/15.png';
+import nephro from '../assets/16.png';
+import neuro from '../assets/17.png';
+import onco from '../assets/18.png';
+import ophtha from '../assets/19.png';
+import ortho from '../assets/20.png';
+import pedia from '../assets/21.png';
+import physiatrist from '../assets/22.png';
+import physio from '../assets/23.png';
+import rheu from '../assets/24.png';
+import sexo from '../assets/25.png';
+import uro from '../assets/26.png';
+
 const data = {
     symptoms: [
         {
@@ -312,6 +329,108 @@ const data = {
             name: 'Vaginal Discharge',
             image: vaginal_discharge,
             specialization: ['Constipation']
+        }
+    ],
+    specializations: [
+        {
+            name: 'Homeopathy',
+            image: null
+        },
+        {
+            name: 'Ayurveda',
+            image: null
+        },
+        {
+            name: 'Cardiologist',
+            image: null
+        },
+        {
+            name: 'Dental',
+            image: null
+        },
+        {
+            name: 'Dermatologist',
+            image: null
+        },
+        {
+            name: 'Diabetologist',
+            image: null
+        },
+        {
+            name: 'Dietician',
+            image: null
+        },
+        {
+            name: 'Endocrinologists',
+            image: null
+        },
+        {
+            name: 'ENT Specialist',
+            image: ENT
+        },
+        {
+            name: 'Gastroenterologists',
+            image: Gastro
+        },
+        {
+            name: 'General Physician',
+            image: general
+        },
+        {
+            name: 'General Surgeons',
+            image: null
+        },
+        {
+            name: 'Gynaecologist',
+            image: gynae
+        },
+        {
+            name: 'Hematologists',
+            image: hema
+        },
+        {
+            name: 'Nephrologists',
+            image: nephro
+        },
+        {
+            name: 'Neurologists',
+            image: neuro
+        },
+        {
+            name: 'Oncologists',
+            image: onco
+        },
+        {
+            name: 'Ophthalmologist',
+            image: ophtha
+        },
+        {
+            name: 'Orthopedic',
+            image: ortho
+        },
+        {
+            name: 'Pediatrics',
+            image: pedia
+        },
+        {
+            name: 'Physiatrists',
+            image: physiatrist
+        },
+        {
+            name: 'Physiotherapist',
+            image: physio
+        },
+        {
+            name: 'Rheumatologists',
+            image: rheu
+        },
+        {
+            name: 'Sexologist',
+            image: sexo
+        },
+        {
+            name: 'Urologists',
+            image: uro
         }
     ]
 }

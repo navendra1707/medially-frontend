@@ -3,13 +3,14 @@ import { Box, Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import data from "../static";
 import SearchCard from "./SearchCard";
+import { CATEGORY } from "../utils/Enum";
 
-const Symptom = ({ searchTerm }) => {
+const Symptom = ({ searchTerm, searchType }) => {
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const { palette } = useTheme();
   const defaultBack = palette.background.default;
 
-  const [symptoms, setSymptoms] = useState(data?.symptoms);
+  const [symptoms, setSymptoms] = useState(searchType === CATEGORY.SYMPTOM ? data?.symptoms : data?.specializations);
 
   useEffect(() => {
     const filterSymptoms = () => {
@@ -40,7 +41,7 @@ const Symptom = ({ searchTerm }) => {
             <SearchCard
               image={symptom.image}
               name={symptom.name}
-              searchType={"symptom"}
+              searchType={searchType}
             />
           );
         })}

@@ -20,13 +20,14 @@ const SearchPage = () => {
   const originalUrl = window.location.href;
   const [doctors, setDoctors] = useState([]);
   const [totalDoctors, setTotalDoctors] = useState(10);
-  const symptom = (params.get("symptom") || "").toLowerCase();
+  const symptom = (params.get("symptom") || "").toLowerCase() || '';
+  const specialization = (params.get("specialization") || "").toLowerCase() || '';
   const [page, setPage] = useState(+params.get("page") || 1);
   const [loading, setLoading] = useState(false);
 
-  const specializations = data.symptoms.find(
+  const specializations = symptom ? data.symptoms.find(
     (s) => s.name.toLowerCase() === symptom
-  )?.specialization;
+  )?.specialization : [specialization] ;
 
   const fetchDoctors = async () => {
     setLoading(true);

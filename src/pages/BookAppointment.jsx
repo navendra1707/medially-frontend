@@ -15,6 +15,7 @@ import FlexBetween from "../styled/FlexBetween";
 import { useTheme } from "@emotion/react";
 import Symptom from "../components/Symptom";
 import SearchBar from "../components/SearchBar";
+import { CATEGORY } from "../utils/Enum";
 
 const BookAppointment = () => {
   const { palette } = useTheme();
@@ -100,10 +101,10 @@ const BookAppointment = () => {
           </Tabs>
 
           <TabPanel value={value} index={0}>
-            <Symptom searchTerm={searchValue} />
+            <Symptom searchTerm={searchValue} searchType = {CATEGORY.SYMPTOM} />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <div>2</div>
+            <Symptom searchTerm={searchValue} searchType = {CATEGORY.SPECIALIZATION} />
           </TabPanel>
         </Stack>
       </Box>
