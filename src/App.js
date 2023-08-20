@@ -13,6 +13,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Profile = lazy(() => import("./pages/Profile"));
 const BookAppointment = lazy(() => import("./pages/BookAppointment"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
+const DoctorProfile = lazy(() => import('./pages/DoctorProfile'));
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -41,6 +42,7 @@ function App() {
     <div
       style={{
         backgroundColor: theme?.palette?.background?.default,
+        minHeight: '100vh'
       }}
     >
       <BrowserRouter>
@@ -69,6 +71,10 @@ function App() {
             <Route
               element=<SuspenseWrapper>{isAuth ? <SearchPage /> : <Navigate to="/login" />}</SuspenseWrapper>
               path="/search"
+            />
+            <Route
+              element=<SuspenseWrapper>{isAuth ? <DoctorProfile /> : <Navigate to="/login" />}</SuspenseWrapper>
+              path="/doctor/:id"
             />
           </Routes>
         </ThemeProvider>
