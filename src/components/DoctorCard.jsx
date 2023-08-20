@@ -6,9 +6,11 @@ import SubHeading from "../styled/SubHeading";
 import LightText from "../styled/LightText";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Btn from "../styled/Btn";
+import { useNavigate } from "react-router-dom";
 
 const DoctorCard = ({ name, specialization, _id }) => {
   const { palette } = useTheme();
+  const navigate = useNavigate();
   const alt = palette.background.alt;
   const neutralDark = palette.neutral.dark;
   const neutralMedium = palette.neutral.medium;
@@ -62,6 +64,7 @@ const DoctorCard = ({ name, specialization, _id }) => {
                 fontWeight: 550,
                 color: neutralDark
             }}
+            onClick={() => {navigate(`/doctor/${_id}`)}}
           >
             View Profile
           </Button>
