@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import {
   Box,
-  IconButton,
-  InputBase,
   Stack,
   Tab,
   Tabs,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
-import { Search } from "@mui/icons-material";
-import FlexBetween from "../styled/FlexBetween";
 import { useTheme } from "@emotion/react";
 import Symptom from "../components/Symptom";
 import SearchBar from "../components/SearchBar";
@@ -19,8 +14,6 @@ import { CATEGORY } from "../utils/Enum";
 
 const BookAppointment = () => {
   const { palette } = useTheme();
-  const isMobileScreen = useMediaQuery("(max-width: 1000px)");
-  const neutralLight = palette.neutral.light;
   const defaultBack = palette.background.default;
   const neutralDark = palette.neutral.dark;
 
