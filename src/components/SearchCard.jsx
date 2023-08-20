@@ -20,6 +20,7 @@ const SearchCard = ({ name, image, searchType }) => {
         height: "10vh",
         borderRadius: "0.8rem",
         p: 2,
+        cursor: 'pointer'
       }}
 
       onClick={() => {
@@ -28,7 +29,7 @@ const SearchCard = ({ name, image, searchType }) => {
     >
       <FlexBetween justifyContent={"space-between"}>
         <Stack alignItems={'center'} direction={'row'} justifyContent={'center'} gap={2}>
-          <Avatar src={image ? image : ''} alt="symptom" />
+          <Avatar src={image ? image : ''} sx = {{visibility: image ? 'visible' : 'hidden'}} alt="symptom" />
           <SubHeading style={{ color: neutralDark }}>{name}</SubHeading>
         </Stack>
         <Button>
