@@ -10,7 +10,7 @@ const Appointments = () => {
             color: palette.neutral.main
         }}
     >
-        No Upcoming Appointments!
+        Your Appointments will be displayed here soon.
     </SubHeading>
 }
 

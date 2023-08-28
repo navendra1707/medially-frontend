@@ -1,19 +1,19 @@
 import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
 
-const FormInput = styled(TextField)({
+const FormInput = styled(TextField)(({inputColor}) => ({
     "& .MuiFormLabel-root": {
-        color: '#fff',
+        color: inputColor ? inputColor : '#fff',
         fontWeight: 500,
         fontSize: '1.1rem'
     },
     "& .MuiFormLabel-root.Mui-focused": {
-        color: '#fff',
+        color: inputColor ? inputColor : '#fff',
         fontWeight: 500,
         fontSize: '1.1rem'
     },
     backgroundColor: '#333333',
     borderRadius: '0.5rem'
-})
+}))
 
 export default FormInput;

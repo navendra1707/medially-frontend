@@ -89,6 +89,7 @@ const SearchPage = () => {
               {doctors?.map((doctor) => {
                 return (
                   <DoctorCard
+                    key={doctor?._id}
                     name={doctor?.fullName}
                     specialization={doctor?.correctSpecialization}
                     _id={doctor?._id}

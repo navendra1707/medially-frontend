@@ -8,6 +8,7 @@ import { createTheme } from "@mui/material";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SuspenseWrapper from "./styled/SuspenseWrapper";
+import BookDoctor from "./pages/BookDoctor";
 const Login = lazy(() => import("./pages/Login"));
 const Home = lazy(() => import("./pages/Home"));
 const Profile = lazy(() => import("./pages/Profile"));
@@ -75,6 +76,10 @@ function App() {
             <Route
               element=<SuspenseWrapper>{isAuth ? <DoctorProfile /> : <Navigate to="/login" />}</SuspenseWrapper>
               path="/doctor/:id"
+            />
+            <Route
+              element=<SuspenseWrapper>{isAuth ? <BookDoctor /> : <Navigate to="/login" />}</SuspenseWrapper>
+              path="/doctor/:id/book-appointment"
             />
           </Routes>
         </ThemeProvider>

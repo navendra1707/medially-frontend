@@ -52,7 +52,9 @@ const DoctorCard = ({ name, specialization, _id }) => {
         <Stack
             alignItems={'flex-end'}
         >
-          <Button>
+          <Button
+            onClick={() => {navigate(`/doctor/${_id}/book-appointment`)}}
+          >
             <KeyboardArrowRightIcon sx={{ color: neutralDark }} />
           </Button>
           <Button
