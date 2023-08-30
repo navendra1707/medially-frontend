@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SuspenseWrapper from "./styled/SuspenseWrapper";
 import BookDoctor from "./pages/BookDoctor";
 const Login = lazy(() => import("./pages/Login"));
-const Home = lazy(() => import("./pages/Home"));
+const HomePage = lazy(() => import("./pages/HomePage"));
 const Profile = lazy(() => import("./pages/Profile"));
 const BookAppointment = lazy(() => import("./pages/BookAppointment"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
@@ -58,7 +58,7 @@ function App() {
               path="/register"
             />
             <Route
-              element=<SuspenseWrapper>{isAuth ? <Home /> : <Navigate to="/login" />}</SuspenseWrapper>
+              element=<SuspenseWrapper>{isAuth ? <HomePage /> : <Navigate to="/login" />}</SuspenseWrapper>
               path="/"
             />
             <Route

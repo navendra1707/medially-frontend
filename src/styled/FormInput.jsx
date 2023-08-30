@@ -12,7 +12,7 @@ const FormInput = styled(TextField)(({inputColor}) => ({
         fontWeight: 500,
         fontSize: '1.1rem'
     },
-    backgroundColor: '#333333',
+    backgroundColor: inputColor ? inputColor : '#fff',
     borderRadius: '0.5rem'
 }))
 
