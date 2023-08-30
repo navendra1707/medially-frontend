@@ -27,7 +27,7 @@ const PageLayout = ({ children, minHeight, loading, width }) => {
         >
           <Card
             sx={{
-              width: isMobileScreen ? "90vw" : (width || '60vw'),
+              width: isMobileScreen ? "95vw" : (width || '60vw'),
               backgroundColor: alt,
               borderRadius: "0.5rem",
               margin: "2rem auto",

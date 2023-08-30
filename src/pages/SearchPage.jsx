@@ -40,6 +40,7 @@ const SearchPage = () => {
         },
         body: JSON.stringify({
           specializations,
+          queryParams: searchValue
         }),
       }
     );
@@ -54,7 +55,7 @@ const SearchPage = () => {
   };
   useEffect(() => {
     fetchDoctors();
-  }, [page]);
+  }, [page, searchValue]);
 
   return (
     <div>
@@ -78,7 +79,11 @@ const SearchPage = () => {
           <form>
             <SearchBar
               searchValue={searchValue}
-              setSearchValue={setSearchValue}
+              setSearchValue={(val) => {
+                setSearchValue(val);
+                handleUpdateClick(originalUrl, "page", 1);
+                setPage(1);
+              }}
               placeholder={"Search Doctors..."}
             />
           </form>

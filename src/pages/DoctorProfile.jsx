@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GET_INDIVIDUAL_DOCTOR } from "../endPoints";
 import { Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@emotion/react";
@@ -7,9 +7,11 @@ import doctor_img from "../assets/doctor.png";
 import Heading from "../styled/Heading";
 import SubHeading from "../styled/SubHeading";
 import PageLayout from "../styled/PageLayout";
+import Btn from "../styled/Btn";
 
 const DoctorProfile = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [doctor, setDoctor] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -63,6 +65,9 @@ const DoctorProfile = () => {
           <SubHeading style={{ color: medium, fontWeight: 500 }}>
             {doctor?.qualification}
           </SubHeading>
+          <Btn onClick={() => navigate(`/doctor/${id}/book-appointment`)}>
+            Book Now
+          </Btn>
         </Stack>
       </Stack>
     </PageLayout>
