@@ -5,14 +5,14 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Btn from "../styled/Btn";
-import { LOGIN_API } from "../endPoints";
+import { DOCTOR_LOGIN } from "../endPoints";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../state";
 import { CircularProgress } from "@mui/material";
 
-const LoginForm = () => {
+const DoctorLogin = () => {
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
-    email: "",
+    userId: "",
     password: "",
   });
 
@@ -41,7 +41,7 @@ const LoginForm = () => {
     setLoading(true);
     e.preventDefault();
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/${LOGIN_API}`,
+      `${process.env.REACT_APP_BASE_URL}/${DOCTOR_LOGIN}`,
       {
         method: "POST",
         body: JSON.stringify(formData),
@@ -74,15 +74,15 @@ const LoginForm = () => {
       <form onSubmit={login}>
         <Stack gap={3} justifyContent={"center"} alignItems={"center"}>
           <FormInput
-            id="email"
-            label="Email ID"
+            id="userId"
+            label="User ID (MAXXXXX)"
             inputProps={inputProps}
-            type="email"
-            value={formData.email}
+            type="text"
+            value={formData.userId}
             onChange={(e) => {
               setFormData((prev) => ({
                 ...prev,
-                email: e.target.value,
+                userId: e.target.value,
               }));
             }}
           />
@@ -138,4 +138,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default DoctorLogin;

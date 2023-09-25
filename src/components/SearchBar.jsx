@@ -25,7 +25,7 @@ const SearchBar = ({ searchValue, setSearchValue, placeholder }) => {
         width: isMobileScreen ? "60vw" : "30vw",
       }}
     />
-    <IconButton type="submit">
+    <IconButton>
       <Search />
     </IconButton>
   </FlexBetween>;

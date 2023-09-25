@@ -3,12 +3,13 @@ import { Card, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import Heading from "../styled/Heading";
 import { useSelector } from "react-redux";
-import Appointments from "../components/Appointments";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SubHeading from "../styled/SubHeading";
 import { useNavigate } from "react-router-dom";
 import PageLayout from "../styled/PageLayout";
+import Btn from "../styled/Btn";
 
 const HomePage = () => {
   const { palette } = useTheme();
@@ -33,9 +34,14 @@ const HomePage = () => {
             color: main,
           }}
         >
-          {`Hey, ${user?.fullName}`}
+          {`Hey, ${user? user.fullName : ''}`}
         </Heading>
-        <Appointments />
+        <Btn 
+          endIcon={<KeyboardArrowRightIcon />}
+          onClick={() => navigate('/bookings')}
+        >
+          Your Appointments
+        </Btn>
         <Card
           sx={{
             borderRadius: "0.5rem",

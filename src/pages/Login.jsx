@@ -12,19 +12,33 @@ import {
 import LoginForm from "../components/LoginForm";
 import { useLocation, useNavigate } from "react-router-dom";
 import RegisterForm from "../components/RegisterForm";
+import DoctorLogin from "../components/DoctorLogin";
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
 
-  const value = location.pathname === "/login" ? 0 : 1;
+  let value = 0;
+
+  switch(location.pathname){
+    case "/login":
+      value = 0;
+      break;
+    case "/register":
+      value = 1;
+      break;
+    default:
+      value = 2;
+  }
 
   const handleChange = (event, newValue) => {
     if (newValue === 1) {
       navigate("/register");
-    } else {
+    } else if(newValue == 0) {
       navigate("/login");
+    } else{
+      navigate('/doctor-login');
     }
   };
 
@@ -51,7 +65,7 @@ const Login = () => {
   const tabStyle = {
     color: "#fff",
     fontWeight: 550,
-    fontSize: "1.2rem",
+    fontSize: isMobileScreen ? "0.9rem" : "1.2rem",
   };
 
   return (
@@ -86,16 +100,19 @@ const Login = () => {
           <Tabs
             value={value}
             onChange={handleChange}
-            aria-label="disabled tabs example"
           >
             <Tab label="Login" style={tabStyle} />
             <Tab label="Register" style={tabStyle} />
+            <Tab label="Login as Doctor" style={tabStyle} />
           </Tabs>
           <TabPanel value={value} index={0}>
             <LoginForm />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <RegisterForm />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <DoctorLogin />
           </TabPanel>
         </Stack>
       </Card>

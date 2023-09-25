@@ -3,12 +3,14 @@ import { Box, Card, useMediaQuery } from "@mui/material";
 import React from "react";
 import Navbar from "../components/Navbar";
 import Loader from "./Loader";
+import Heading from "./Heading";
 
-const PageLayout = ({ children, minHeight, loading, width }) => {
+const PageLayout = ({ children, minHeight, loading, width, title }) => {
   const { palette } = useTheme();
   const isMobileScreen = useMediaQuery("(max-width: 1000px)");
   const defaultBack = palette.background.default;
   const alt = palette.background.alt;
+  const neutralDark = palette.neutral.dark;
 
   return (
     <div>
@@ -23,8 +25,12 @@ const PageLayout = ({ children, minHeight, loading, width }) => {
             justifyContent: "center",
             minHeight: "90vh",
             backgroundColor: defaultBack,
+            flexDirection: 'column'
           }}
         >
+          {title && <Heading sx={{color: neutralDark}}>
+              {title}
+            </Heading>}
           <Card
             sx={{
               width: isMobileScreen ? "95vw" : (width || '60vw'),
