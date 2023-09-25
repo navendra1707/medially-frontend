@@ -97,7 +97,7 @@ const RegisterForm = () => {
   const inputProps = {
     style: {
       width: isMobileScreen ? "80vw" : "30vw",
-      color: "#fff",
+      color: "#000",
       fontWeight: 550,
       fontSize: "1.2rem",
     },

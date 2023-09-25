@@ -76,6 +76,7 @@ const BookDoctor = () => {
       patientName: formData.patientName,
       date: formData.date,
       doctorId: doctor._id,
+      doctorName: doctor.fullName
     };
 
     const response = await fetch(

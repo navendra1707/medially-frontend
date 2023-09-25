@@ -3,12 +3,12 @@ import { TextField } from "@mui/material";
 
 const FormInput = styled(TextField)(({inputColor}) => ({
     "& .MuiFormLabel-root": {
-        color: inputColor ? inputColor : '#fff',
+        color: inputColor ? inputColor : '#000',
         fontWeight: 500,
         fontSize: '1.1rem'
     },
     "& .MuiFormLabel-root.Mui-focused": {
-        color: inputColor ? inputColor : '#fff',
+        color: inputColor ? inputColor : '#000',
         fontWeight: 500,
         fontSize: '1.1rem'
     },
